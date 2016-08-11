@@ -45,7 +45,7 @@ function createCopyButton(text, home) {
 }
 
 function addUID(uid){
-    var link = 'http://www.uniquemachine.org/show/?user_id=' + uid + '&automated=false&demo=True';
+    var link = 'http://www.uniquemachine.org/show/?user_id=' + uid + '&automated=false&modal=false&demo=True';
     window.location.href=link;
     if (requests['demo'] === "True") {
         link += "&demo=True"
