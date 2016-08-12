@@ -36,7 +36,7 @@
       mesh.rotation.x = -Math.PI / 2;
       this.scene.add(mesh);
       objectGeometry = new THREE.TorusGeometry(1.5, 0.4, 8, 16);
-      numRings = 10000;
+      numRings = 100;
       for (_ = i = 0, ref = numRings; 0 <= ref ? i < ref : i > ref; _ = 0 <= ref ? ++i : --i) {
         mesh = new THREE.Mesh(objectGeometry, objectMaterial);
         mesh.position.x = 400 * (0.5 - Math.random());
@@ -49,45 +49,15 @@
         this.scene.add(mesh);
       }
       intensity = 2.5;
-      distance = 100;
+      distance = 1000;
       decay = 2.0;
       c1 = 0xff0040;
-      c2 = 0x0040ff;
-      c3 = 0x80ff80;
-      c4 = 0xffaa00;
-      c5 = 0x00ffaa;
-      c6 = 0xff1100;
       sphere = new THREE.SphereGeometry(0.25, 16, 8);
       this.light1 = new THREE.PointLight(c1, intensity, distance, decay);
       this.light1.add(new THREE.Mesh(sphere, new THREE.MeshBasicMaterial({
         color: c1
       })));
       this.scene.add(this.light1);
-      this.light2 = new THREE.PointLight(c2, intensity, distance, decay);
-      this.light2.add(new THREE.Mesh(sphere, new THREE.MeshBasicMaterial({
-        color: c2
-      })));
-      this.scene.add(this.light2);
-      this.light3 = new THREE.PointLight(c3, intensity, distance, decay);
-      this.light3.add(new THREE.Mesh(sphere, new THREE.MeshBasicMaterial({
-        color: c3
-      })));
-      this.scene.add(this.light3);
-      this.light4 = new THREE.PointLight(c4, intensity, distance, decay);
-      this.light4.add(new THREE.Mesh(sphere, new THREE.MeshBasicMaterial({
-        color: c4
-      })));
-      this.scene.add(this.light4);
-      this.light5 = new THREE.PointLight(c5, intensity, distance, decay);
-      this.light5.add(new THREE.Mesh(sphere, new THREE.MeshBasicMaterial({
-        color: c5
-      })));
-      this.scene.add(this.light5);
-      this.light6 = new THREE.PointLight(c6, intensity, distance, decay);
-      this.light6.add(new THREE.Mesh(sphere, new THREE.MeshBasicMaterial({
-        color: c6
-      })));
-      this.scene.add(this.light6);
       dlight = new THREE.DirectionalLight(0xffffff, 0.05);
       dlight.position.set(0.5, 1, 0).normalize();
       this.scene.add(dlight);
@@ -118,16 +88,6 @@
           time = freq * level;
           _this.light1.position.x = Math.sin(time * 0.7) * distance;
           _this.light1.position.z = Math.cos(time * 0.3) * distance;
-          _this.light2.position.x = Math.cos(time * 0.3) * distance;
-          _this.light2.position.z = Math.sin(time * 0.7) * distance;
-          _this.light3.position.x = Math.sin(time * 0.7) * distance;
-          _this.light3.position.z = Math.sin(time * 0.5) * distance;
-          _this.light4.position.x = Math.sin(time * 0.3) * distance;
-          _this.light4.position.z = Math.sin(time * 0.5) * distance;
-          _this.light5.position.x = Math.cos(time * 0.3) * distance;
-          _this.light5.position.z = Math.sin(time * 0.5) * distance;
-          _this.light6.position.x = Math.cos(time * 0.7) * distance;
-          _this.light6.position.z = Math.cos(time * 0.5) * distance;
           ++level;
           _this.renderer.render(_this.scene, _this.camera);
           if (level === 50) {
