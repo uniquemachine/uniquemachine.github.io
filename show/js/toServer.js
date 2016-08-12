@@ -296,6 +296,10 @@ var Sender = function() {
                 return ;*/
               progress(90);
 
+              function get_fingerprint(){
+                  return calcSHA1(self.postData.toString()); //remove the leading words
+              }
+
               function startSend(){
                   $.ajax({
                       url : "http://" + ip_address + "/collect.py",
@@ -305,13 +309,14 @@ var Sender = function() {
                       success : function(data) {
                           console.log("success");
                           $('#doing').hide();
+                          fingerprint = get_fingerprint();
                           if (data === 'user_id error') {
                               window.location.href = error_page;
                           } else {
                               num = data.split(',')[0];
                               code = data.split(',')[1];
                               $('#instruction')
-                                  .append('Thank you for visiting');
+                                  .append('Thank you for visiting<br> Your Single browser fingerprint is <br><br>' + fingerprint);
                           }
 
                           progress(100);
