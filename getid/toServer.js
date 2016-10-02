@@ -1,4 +1,4 @@
-var ip_address = "54.221.117.15"
+var ip_address = "54.164.85.95"
 
 function createCopyButton(text, home) {
     var clipboard = new Clipboard('.btn');
