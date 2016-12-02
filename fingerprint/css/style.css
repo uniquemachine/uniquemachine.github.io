@@ -138,10 +138,13 @@ body {
     justify-content: space-around;
     box-sizing: border-box;
     padding: 50px;
-    background: radial-gradient(
-    hsl(30,80%,80%),
-    hsl(210,50%,70%) )
-    no-repeat center;
+    background-image: url(../images/fingerprint.gif);
+    background-attachment: fixed;
+    background-position: center;
+    height: 100%;
+    background-repeat: no-repeat;
+    background-size: cover;
+    opacity: 1;
 }
 
 html,
