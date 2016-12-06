@@ -134,6 +134,11 @@ jQuery(function($) {
 		});
 	});
 
+  //add fingerprint iframe
+  $("#fingerprint").click(function() {
+      $("<iframe />", { src: "./fingerprint/index.html", width: "100%", hegiht: "100%"}).appendTo("iframe-container");
+  });
+
 	//Google Map
 	var latitude = $('#google-map').data('latitude')
 	var longitude = $('#google-map').data('longitude')
