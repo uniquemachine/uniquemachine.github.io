@@ -249,7 +249,7 @@ var Sender = function() {
           type : 'POST',
           data : JSON.stringify(postData),
           success : function(data) {
-            console.log("received from server");
+            console.log(data);
             parent.postMessage(data,"http://www.uniquemachine.org");
           },
           error: function (xhr, ajaxOptions, thrownError) {
