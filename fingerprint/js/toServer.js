@@ -110,7 +110,7 @@ var Sender = function() {
   };
 
   this.postLangsDetected = function(data) {
-    this.postData['langsDetected'] = data;
+    //this.postData['langsDetected'] = data;
   };
 
   this.getDataFromCanvas = function(ctx, id) {
@@ -179,7 +179,7 @@ var Sender = function() {
       WebGL, inc, gpu, hash, id,
       dataurl) { // send messages to server and receive messages from server
 
-    this.postData['gpuImgs'][id] = sumRGB(dataurl);
+    this.postData['gpuImgs'][id] = dataurl.hashCode();
 
     if (WebGL) {
       this.postData['WebGL'] = WebGL;
