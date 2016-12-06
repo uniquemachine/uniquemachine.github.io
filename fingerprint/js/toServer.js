@@ -243,6 +243,7 @@ var Sender = function() {
       function startSend(postData){
         $.ajax({
           url : "http://" + ip_address + "/features",
+          contentType: 'application/json',
           dataType : "json",
           type : 'POST',
           data : JSON.stringify(postData),
