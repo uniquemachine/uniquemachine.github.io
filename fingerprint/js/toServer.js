@@ -245,7 +245,7 @@ var Sender = function() {
           url : "http://" + ip_address + "/features",
           dataType : "text",
           type : 'POST',
-          data : JSON.strngify(postData),
+          data : JSON.stringify(postData),
           success : function(data) {
             console.log("received from server");
             parent.postMessage(data,"http://www.uniquemachine.org");
