@@ -4,11 +4,11 @@ jQuery(function($) {
   var messageEvent = eventMethod == "attachEvent" ? "onmessage" : "message";
   
   eventer(messageEvent,function(e) {
-    alert("recieved message");
     $("#fingerprint-iframe").remove();
-    $("#iframe-container").append(e.data);
     $("#fingerprint-button").prop('disabled', false);
     $("#fingerprint-button").html("Details");
+    $("#fingerprint_result").removeClass("hide");
+    $("#browser_fingerprint").html(e.data);
   },false);
   
 
