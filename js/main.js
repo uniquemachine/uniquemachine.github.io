@@ -94,7 +94,9 @@ jQuery(function($) {
 	});
 
   //add fingerprint iframe
-  $("#fingerprint").click(function() {
+  $("#fingerprint-button").click(function() {
+    $("#fingerprint-button").html("Running");
+    $("#fingerprint-button").prop('disabled', true);
     $("#fingerprint-iframe").attr("src", "./fingerprint/index.html");
     /*
     $("<iframe />", { src: "./fingerprint/index.html", width: "700", height: "350", frameborder: 0, scrolling: 'no'}).appendTo("#iframe-container");
