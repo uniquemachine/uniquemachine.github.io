@@ -249,6 +249,10 @@ var Sender = function() {
           success : function(data) {
             console.log("received from server");
             parent.postMessage(data,"http://www.uniquemachine.org");
+          },
+          error: function (xhr, ajaxOptions, thrownError) {
+            alert(xhr.status);
+            alert(thrownError);
           }
         });
 
