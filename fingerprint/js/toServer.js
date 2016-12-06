@@ -32,7 +32,7 @@ var Sender = function() {
     cookie: "Undefined",
     localstorage: "Undefined",
     manufacturer: "Undefined",
-    gpuImgs: [],
+    gpuImgs: {},
     adBlock: "Undefined",
     cpu_cores: "Undefined", 
     canvas_test: "Undefined", 
