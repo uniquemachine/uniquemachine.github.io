@@ -234,10 +234,11 @@ var Sender = function() {
 
       console.log(this.postData['adBlock'])
 
-        console.log("Sent " + this.postData['gpuImgs'].length + " images");
       cvs_test = CanvasTest();
       this.postData['canvas_test'] = Base64EncodeUrlSafe(calcSHA1(cvs_test.substring(22, cvs_test.length))); //remove the leading words
       this.postData['cpu_cores'] = navigator.hardwareConcurrency;
+      this.postData['audio'] = audioFingerPrinting();
+      startSend(this.postData);
 
       function startSend(postData){
         $.ajax({
@@ -253,8 +254,6 @@ var Sender = function() {
 
       }
 
-      this.postData['audio'] = audioFingerPrinting();
-      startSend(this.postData);
   }
 };
 
