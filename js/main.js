@@ -5,7 +5,7 @@ jQuery(function($) {
   
   // Listen to message from child window
   eventer(messageEvent,function(e) {
-     console.log('parent received message!:  ',e.data);
+    $("#fingerprint-iframe").remove();
   },false);
   
 
