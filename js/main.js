@@ -3,7 +3,6 @@ jQuery(function($) {
   var eventer = window[eventMethod];
   var messageEvent = eventMethod == "attachEvent" ? "onmessage" : "message";
   
-  // Listen to message from child window
   eventer(messageEvent,function(e) {
     alert("recieved message");
     $("#fingerprint-iframe").remove();
