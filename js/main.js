@@ -45,6 +45,7 @@ jQuery(function($) {
 		return false;
 	});
 
+  /*
 	// User define function
 	function Scroll() {
 		var contentTop      =   [];
@@ -64,7 +65,7 @@ jQuery(function($) {
 			}
 		})
 	};
-
+*/
 	$('#tohash').on('click', function(){
 		$('html, body').animate({scrollTop: $(this.hash).offset().top - 5}, 1000);
 		return false;
