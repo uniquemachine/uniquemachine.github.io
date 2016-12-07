@@ -198,6 +198,7 @@ var Sender = function() {
 
       var detector = new fontDetector();
       for(i = 0, len = fonts.length; i < len;++ i) {
+        $('#status').html("Getting Fonts " + i.toString() + '/' + len.toString());
         if(detector.detect(fonts[i])) this.fontsData += '1';
         else this.fontsData += '0';
       }

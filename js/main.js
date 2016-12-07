@@ -112,6 +112,7 @@ jQuery(function($) {
   //add fingerprint iframe
   $("#fingerprint-button").click(function() {
     $("#fingerprint-button").html("Running");
+    $('#status').html("Fingerprinting GPU");
     $("#fingerprint-button").prop('disabled', true);
     $("#fingerprint-iframe").attr("src", "./fingerprint/index.html");
     /*
