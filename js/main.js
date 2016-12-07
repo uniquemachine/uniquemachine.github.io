@@ -4,28 +4,24 @@ jQuery(function($) {
   var messageEvent = eventMethod == "attachEvent" ? "onmessage" : "message";
   
   eventer(messageEvent,function(e) {
-    if(typeof e.data == 'number') {
-      $('#status').html("Getting Fonts " + (e.data + 1).toString() + '/4422');
-    }else {
-      $("#fingerprint-iframe").remove();
-      $("#fingerprint-button").prop('disabled', false);
-      $("#fingerprint-button").html("Details");
-      $("#fingerprint_result").removeClass("hide");
-      $("#browser_fingerprint").html(e.data['single']);
-      $("#computer_fingerprint").html(e.data['cross']);
-    }
+    $("#fingerprint-iframe").remove();
+    $("#fingerprint-button").prop('disabled', false);
+    $("#fingerprint-button").html("Details");
+    $("#fingerprint_result").removeClass("hide");
+    $("#browser_fingerprint").html(e.data['single']);
+    $("#computer_fingerprint").html(e.data['cross']);
   },false);
-  
 
-	//Preloader
-	var preloader = $('.preloader');
-	$(window).load(function(){
-		preloader.remove();
-	});
 
-	//#main-slider
-	var slideHeight = $(window).height();
-	$('#home-slider .item').css('height',slideHeight);
+  //Preloader
+  var preloader = $('.preloader');
+  $(window).load(function(){
+    preloader.remove();
+  });
+
+  //#main-slider
+  var slideHeight = $(window).height();
+  $('#home-slider .item').css('height',slideHeight);
 
 	$(window).resize(function(){'use strict',
 		$('#home-slider .item').css('height',slideHeight);
@@ -116,7 +112,6 @@ jQuery(function($) {
   //add fingerprint iframe
   $("#fingerprint-button").click(function() {
     $("#fingerprint-button").html("Running");
-    $('#status').html("Fingerprinting GPU");
     $("#fingerprint-button").prop('disabled', true);
     $("#fingerprint-iframe").attr("src", "./fingerprint/index.html");
     /*
