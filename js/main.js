@@ -4,9 +4,8 @@ jQuery(function($) {
   var messageEvent = eventMethod == "attachEvent" ? "onmessage" : "message";
   
   eventer(messageEvent,function(e) {
-    console.log(typeof e.data);
     if(typeof e.data == 'number') {
-      $('#status').html("Getting Fonts " + e.data.toString() + '/' + len.toString());
+      $('#status').html("Getting Fonts " + e.data.toString() + '/4422');
     }else {
       $("#fingerprint-iframe").remove();
       $("#fingerprint-button").prop('disabled', false);
