@@ -4,12 +4,16 @@ jQuery(function($) {
   var messageEvent = eventMethod == "attachEvent" ? "onmessage" : "message";
   
   eventer(messageEvent,function(e) {
-    $("#fingerprint-iframe").remove();
-    $("#fingerprint-button").prop('disabled', false);
-    $("#fingerprint-button").html("Details");
-    $("#fingerprint_result").removeClass("hide");
-    $("#browser_fingerprint").html(e.data['single']);
-    $("#computer_fingerprint").html(e.data['cross']);
+    if(typeof e.data == 'number') {
+      $('#status').html("Getting Fonts " + e.data.toString() + '/' + len.toString());
+    }else {
+      $("#fingerprint-iframe").remove();
+      $("#fingerprint-button").prop('disabled', false);
+      $("#fingerprint-button").html("Details");
+      $("#fingerprint_result").removeClass("hide");
+      $("#browser_fingerprint").html(e.data['single']);
+      $("#computer_fingerprint").html(e.data['cross']);
+    }
   },false);
   
 
