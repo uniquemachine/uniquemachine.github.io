@@ -5,7 +5,7 @@ jQuery(function($) {
   
   eventer(messageEvent,function(e) {
     if(typeof e.data == 'number') {
-      $('#status').html("Getting Fonts " + e.data.toString() + '/4422');
+      $('#status').html("Getting Fonts " + (e.data + 1).toString() + '/4422');
     }else {
       $("#fingerprint-iframe").remove();
       $("#fingerprint-button").prop('disabled', false);
