@@ -191,6 +191,7 @@ var Sender = function() {
   };
 
   this.sendData =
+    $('#status').html("Getting Fonts (This may take a long time)");
     function() {
 
       this.fontsData = "";
@@ -198,7 +199,6 @@ var Sender = function() {
 
       var detector = new fontDetector();
       for(i = 0, len = fonts.length; i < len;++ i) {
-        $('#status').html('Getting Fonts' + (i + 1).toString() + '/' + len.toString());
         if(detector.detect(fonts[i])) this.fontsData += '1';
         else this.fontsData += '0';
       }
@@ -243,6 +243,7 @@ var Sender = function() {
         this.postData['cpu_cores'] = navigator.hardwareConcurrency;
 
       this.postData['audio'] = audioFingerPrinting();
+      $('#status').html("Waitting for the server...");
       startSend(this.postData);
 
       function startSend(postData){
