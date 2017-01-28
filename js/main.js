@@ -119,7 +119,8 @@ jQuery(function($) {
     } else {
       $("#fingerprint-result").addClass("hide");
       $("#fingerprint-iframe").removeClass("hide");
-      $("#fingerprint-iframe").attr("height", "1000");
+      $("#fingerprint-iframe").attr("width", "1024");
+      $("#fingerprint-iframe").attr("height", "1280");
     }
     $('html, body').animate({
       scrollTop: $("#fingerprint").offset().top - 5
