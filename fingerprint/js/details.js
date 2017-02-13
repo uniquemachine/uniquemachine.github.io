@@ -5,7 +5,9 @@ var cross_list = {
   cpu_cores: 'Number of Cpu Cores',
   fonts: 'Detected Fonts',
   audio: 'Audio', 
-  ratio: 'Screen Ratio'
+  ratio: 'Screen Ratio',
+  depth: 'Screen Depth',
+  //gpuimgs: 'Hash Value of GPU Rendering Results'
 }
 var cnted_list = {
   timezone: 'Time Zone',
@@ -55,11 +57,34 @@ function gen_code() {
   $('#cur_fingerprint').html("Current Fingerprint: " + md5(res));
 }
 
+function getGPUTable(hashes) {
+  res = "";
+  var cur = 0;
+  for (hash in hashes) {
+    res += "<label width = '30px'><input type='checkbox' class = 'checkbox'/> " + hashes[hash] + "</label>";
+    if (cur ++ % 3 == 2) 
+      res += "<br>";
+  }  
+  return res;
+}
 function buildTable(data) {
   trans_data = data;
   var list = data['resolution'].split('_');
   trans_data['ratio'] = Math.round(list[0] / list[1] * 100) / 100;
   data['ratio'] = trans_data['ratio'];
+  data['depth'] = list[5];//data['resolution'];
+
+  //If CPU core is not detected, N/A
+  if (data['cpu_cores'] == -1 || data['cpu_cores'] == '-1') { //here we can also use == '-1'
+    data['cpu_cores'] = 'N/A';
+  }
+
+  //convert timezone to a better way
+  var timezone = parseInt(data['timezone']);
+  var base;
+  if (timezone > 0) base = 'UTC-';
+  else base = 'UTC+';
+  data['timezone'] = 'UTC-' + (timezone / 60).toString();
 
   $('#result_table').append('<tr><td class = "checkbox"></td><td>Feature</td><td class = "value">Value</td></tr>');
   $('#result_table').append('<tr><td colspan="3" class = "type">Cross-browser Features</td></tr>');
@@ -70,6 +95,16 @@ function buildTable(data) {
       value = data[cross];
       if (cross == 'fonts') {
         value = getFontsString(value);
+      }
+
+      var hashes = {};
+      if (cross == 'gpuimgs') {
+        value = data[cross].split(',');
+        for (hash in value) {
+          cur = value[hash].split('_');
+          hashes[cur[0]] = cur[1];
+        }
+        value = getGPUTable(hashes);
       }
       $('#result_table').append('<tr><td class = "checkbox"> <input id="box_' + cross + '"type="checkbox" onclick="gen_code();" checked></td><td class = "feature">' + cross_list[cross] + '</td><td class = "value">' + value + '</td></tr>');
     }
