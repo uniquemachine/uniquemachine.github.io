@@ -7,7 +7,7 @@ var cross_list = {
   audio: 'Audio', 
   ratio: 'Screen Ratio',
   depth: 'Screen Depth',
-  langsDetected: 'Detected Supported Languages',
+  langsdetected: 'Detected Supported Languages',
  // gpuimgs: 'Hash Value of GPU Rendering Results'
 }
 var cnted_list = {
@@ -33,7 +33,7 @@ var show_list = {
   fonts: 'Detected Fonts',
   gpu: 'GPU',
   language: 'Language',
-  langsDetected: 'Detected Supported Languages',
+  langsdetected: 'Detected Supported Languages',
   plugins: 'Plugins'
 };
 var gpu_imgs_name = [
