@@ -133,7 +133,7 @@ function getGPUString() {
 function getTable(name) {
   if (name == "fonts") return getFontsString(trans_data[name]);
   if (name == "gpuimgs") return getGPUString(trans_data[name]); 
-  if (name == "langsdetected") return trans_data[name].replace("_",",");
+  if (name == "langsdetected") return trans_data[name].split('_');
   return trans_data[name];
 }
 
