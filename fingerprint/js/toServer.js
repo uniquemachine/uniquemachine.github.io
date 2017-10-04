@@ -262,7 +262,6 @@ var Sender = function() {
             parent.postMessage(data,"http://uniquemachine.org");
           },
           error: function (xhr, ajaxOptions, thrownError) {
-            alert(thrownError);
           }
         });
 

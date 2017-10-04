@@ -57,7 +57,6 @@
         return function(err, susanModel) {
           _this.susanModel = susanModel;
           if (err) {
-            alert('error getting susan model');
             console.log(err);
           } else {
             _this.assetLoaded();
@@ -69,7 +68,6 @@
         return function(err, simpleModel) {
           _this.simpleModel = simpleModel;
           if (err) {
-            alert('error getting simpleModel');
             console.log(err);
           } else {
             _this.assetLoaded();
@@ -81,7 +79,6 @@
         return function(err, texture) {
           _this.texture = texture;
           if (err) {
-            alert('error getting color.png');
             console.log(err);
           } else {
             _this.assetLoaded();
@@ -93,7 +90,6 @@
         return function(err, texture1) {
           _this.texture1 = texture1;
           if (err) {
-            alert('error getting colors.png');
             console.log(err);
           } else {
             _this.assetLoaded();

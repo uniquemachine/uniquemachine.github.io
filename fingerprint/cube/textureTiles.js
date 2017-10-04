@@ -40,7 +40,6 @@ var DrawCubeTiles = function () {
     }
 
     if (!gl) {
-        alert('Your browser does not support WebGL');
     }
 
     gl.clearColor(0.75, 0.85, 0.8, 1.0);
