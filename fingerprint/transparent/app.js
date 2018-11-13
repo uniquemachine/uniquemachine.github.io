@@ -240,10 +240,12 @@ var TransparentTest = function (vertices, indices, texCoords, normals, texture) 
         var root = './transparent/'
         loadTextResource(root + 'shader.vs.glsl', function (vsErr, vsText, self) {
             if (vsErr) {
+                alert('Fatal error getting vertex shader (see console)');
                 console.error(vsErr);
             } else {
                 loadTextResource(root + 'shader.fs.glsl', function (fsErr, fsText, self) {
                     if (fsErr) {
+                        alert('Fatal error getting fragment shader (see console)');
                         console.error(fsErr);
                     } else {
                         self.children.push(new RunTransparent(vsText, fsText, 100, 0, self));

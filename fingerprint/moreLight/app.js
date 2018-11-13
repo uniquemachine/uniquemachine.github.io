@@ -243,11 +243,13 @@ var MoreLightTest = function(vertices, indices, texCoords, normals, texture) {
     var root = './moreLight/'
     loadTextResource(root + 'shader.vs.glsl', function(vsErr, vsText, self) {
       if (vsErr) {
+        alert('Fatal error getting vertex shader (see console)');
         console.error(vsErr);
       } else {
         loadTextResource(
             root + 'shader.fs.glsl', function(fsErr, fsText, self) {
               if (fsErr) {
+                alert('Fatal error getting fragment shader (see console)');
                 console.error(fsErr);
               } else {
                 self.children.push(new RunMoreLight(vsText, fsText, 0, self));
