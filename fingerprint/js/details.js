@@ -293,7 +293,6 @@ function getDetails() {
       buildTable(data);
     },
     error: function (xhr, ajaxOptions, thrownError) {
-      alert(thrownError);
     }
   });
 }

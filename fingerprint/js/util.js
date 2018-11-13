@@ -24,7 +24,6 @@ getGLAA = function(canvas) {
   }
 
   if (!gl) {
-    alert('Your browser does not support WebGL');
   }
   return gl;
 }
@@ -44,7 +43,6 @@ getGL = function(canvas) {
   }
 
   if (!gl) {
-    alert('Your browser does not support WebGL');
   }
   return gl;
 }
